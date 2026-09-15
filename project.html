@@ -20,16 +20,28 @@
 
   <meta name="theme-color" content="#050816">
 
-  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="favicon.png"
+  >
 
-  <link rel="stylesheet" href="styles.css">
+  <!-- CSS -->
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
 
 </head>
 
 <body>
 
+  <!-- Rain Background -->
   <div id="rain"></div>
 
+
+  <!-- Project Page -->
   <main class="project-page">
 
     <p class="section-tag">
@@ -45,6 +57,7 @@
       HTML, CSS and JavaScript.
     </p>
 
+
     <div class="project-info">
 
       <h2>
@@ -55,6 +68,7 @@
         I created this portfolio to showcase my skills, projects
         and coding journey as I continue learning web development.
       </p>
+
 
       <h2>
         Technologies Used
@@ -68,6 +82,7 @@
 
       </div>
 
+
       <a
         href="index.html"
         class="back-button"
@@ -80,23 +95,23 @@
   </main>
 
 
+  <!-- Rain JavaScript -->
   <script>
 
     const rain = document.getElementById("rain");
 
     for (let i = 0; i < 120; i++) {
 
-      const drop =
-        document.createElement("span");
+      const drop = document.createElement("span");
 
       drop.classList.add("raindrop");
- 
+
       drop.style.left =
-        Math.random() * 100 + "%"; 
+        Math.random() * 100 + "%";
 
       drop.style.animationDuration =
         (0.5 + Math.random() * 0.8) + "s";
-  
+
       drop.style.animationDelay =
         Math.random() * 2 + "s";
 

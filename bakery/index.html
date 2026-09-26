@@ -1,0 +1,2259 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shri Balaji Bakery & Sweets</title>
+
+    <meta name="description"
+        content="Shri Balaji Bakery & Sweets - Fresh cakes, traditional Indian sweets and bakery products.">
+
+    <style>
+
+        /* =========================
+           BASIC RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fffaf0;
+            color: #321407;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+
+        /* =========================
+           COLORS
+        ========================= */
+
+        :root {
+            --brown-dark: #210b03;
+            --brown: #4a1908;
+            --brown-light: #6b2a0c;
+
+            --gold: #f5c542;
+            --gold-light: #ffe28a;
+
+            --cream: #fff8e7;
+            --white: #ffffff;
+
+            --text: #321407;
+            --shadow: 0 10px 30px rgba(49, 18, 3, 0.18);
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 14px 6%;
+
+            background: var(--brown-dark);
+            border-bottom: 2px solid var(--gold);
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .logo-circle {
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+
+            font-size: 24px;
+            background: #321006;
+        }
+
+        .logo-text {
+            line-height: 1.1;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-size: 17px;
+        }
+
+        .logo-text small {
+            color: var(--gold-light);
+            font-size: 11px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            position: relative;
+
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:not(.order-btn)::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--gold);
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .order-btn {
+            padding: 10px 18px;
+
+            color: var(--brown-dark) !important;
+            background: var(--gold);
+
+            border-radius: 25px;
+
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .menu-btn {
+            display: none;
+
+            border: none;
+            background: transparent;
+            color: var(--gold);
+
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 650px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+
+            padding: 70px 7%;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 80% 30%, #7a320d 0%, transparent 25%),
+                linear-gradient(135deg, #210b03, #481606, #260b03);
+
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            inset: 18px;
+
+            border: 1px solid rgba(245, 197, 66, 0.55);
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 650px;
+        }
+
+        .small-title {
+            color: var(--gold);
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 72px);
+            line-height: 1.15;
+
+            color: var(--gold);
+
+            text-shadow: 3px 3px 0 #321006;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            display: block;
+
+            color: white;
+            font-size: 0.65em;
+
+            margin-top: 10px;
+        }
+
+        .tagline {
+            font-size: 23px;
+            color: var(--gold-light);
+
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            max-width: 560px;
+
+            color: #f8e9c4;
+
+            font-size: 17px;
+
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--brown-dark);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(245, 197, 66, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--brown-dark);
+        }
+
+        .hero-image-area {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 500px;
+        }
+
+        .hero-main-image {
+            width: min(480px, 90%);
+
+            border-radius: 25px;
+
+            border: 5px solid var(--gold);
+
+            box-shadow:
+                0 0 0 10px rgba(245, 197, 66, 0.08),
+                0 20px 50px rgba(0, 0, 0, 0.45);
+
+            transition: 0.5s;
+        }
+
+        .hero-main-image:hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        .floating-badge {
+            position: absolute;
+
+            bottom: 50px;
+            left: 4%;
+
+            padding: 18px 22px;
+
+            background: var(--cream);
+            color: var(--brown);
+
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+
+            box-shadow: var(--shadow);
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           SECTION COMMON
+        ========================= */
+
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title .mini {
+            color: var(--brown-light);
+
+            font-size: 14px;
+            font-weight: bold;
+
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            color: var(--brown-dark);
+
+            font-size: clamp(30px, 4vw, 45px);
+
+            margin: 8px 0 12px;
+        }
+
+        .section-title h2 span {
+            color: #b27a00;
+        }
+
+        .section-title p {
+            max-width: 650px;
+            margin: auto;
+
+            color: #715647;
+        }
+
+
+        /* =========================
+           SPECIALITIES
+        ========================= */
+
+        .specialities {
+            background: var(--cream);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .category-card {
+            background: white;
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            border: 1px solid #ecd99d;
+
+            box-shadow: var(--shadow);
+
+            transition: 0.35s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+
+            border-color: var(--gold);
+        }
+
+        .category-icon {
+            width: 75px;
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: auto auto 18px;
+
+            border-radius: 50%;
+
+            background: #fff1c7;
+
+            font-size: 35px;
+        }
+
+        .category-card h3 {
+            color: var(--brown);
+            margin-bottom: 8px;
+        }
+
+        .category-card p {
+            color: #806a5b;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products-section {
+            background: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .product-card {
+            overflow: hidden;
+
+            background: var(--cream);
+
+            border-radius: 18px;
+
+            border: 1px solid #ead8a3;
+
+            box-shadow: var(--shadow);
+
+            transition: 0.35s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 35px rgba(62, 24, 5, 0.25);
+        }
+
+        .product-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            height: 100%;
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            color: var(--brown);
+            margin-bottom: 7px;
+        }
+
+        .product-info p {
+            color: #806a5b;
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            color: #a66a00;
+            font-weight: bold;
+        }
+
+        .small-btn {
+            padding: 8px 15px;
+
+            background: var(--brown);
+            color: var(--gold);
+
+            border-radius: 20px;
+
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .small-btn:hover {
+            background: var(--gold);
+            color: var(--brown-dark);
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background:
+                linear-gradient(rgba(33, 11, 3, 0.95), rgba(33, 11, 3, 0.95)),
+                url("https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            border-radius: 20px;
+
+            border: 4px solid var(--gold);
+
+            box-shadow: var(--shadow);
+        }
+
+        .about-content .mini {
+            color: var(--gold);
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .about-content h2 {
+            font-size: 42px;
+            color: var(--gold);
+
+            margin: 10px 0 20px;
+        }
+
+        .about-content p {
+            color: #f3e3c0;
+
+            margin-bottom: 18px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        .feature {
+            padding: 15px;
+
+            background: rgba(255, 255, 255, 0.07);
+
+            border-left: 3px solid var(--gold);
+
+            border-radius: 8px;
+        }
+
+
+        /* =========================
+           CAKE SECTION
+        ========================= */
+
+        .cake-section {
+            background: #fffaf0;
+        }
+
+        .cake-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 60px;
+
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .cake-image img {
+            border-radius: 25px;
+
+            box-shadow: var(--shadow);
+
+            border: 4px solid var(--gold);
+        }
+
+        .cake-content h2 {
+            color: var(--brown-dark);
+            font-size: 42px;
+
+            margin-bottom: 20px;
+        }
+
+        .cake-content h2 span {
+            color: #b27a00;
+        }
+
+        .cake-content p {
+            color: #725b4b;
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 240px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            border-radius: 14px;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: 20px;
+
+            background: linear-gradient(
+                transparent,
+                rgba(30, 8, 2, 0.85)
+            );
+
+            color: white;
+
+            opacity: 0;
+
+            transition: 0.35s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h3 {
+            color: var(--gold);
+        }
+
+
+        /* =========================
+           WHY US
+        ========================= */
+
+        .why-us {
+            background: var(--cream);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .why-card {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            border-top: 4px solid var(--gold);
+
+            box-shadow: var(--shadow);
+        }
+
+        .why-card .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .why-card h3 {
+            color: var(--brown);
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            color: #806a5b;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 70px 7%;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #210b03,
+                    #5b2008
+                );
+
+            color: white;
+        }
+
+        .cta h2 {
+            color: var(--gold);
+
+            font-size: clamp(30px, 4vw, 48px);
+
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #f6e5bd;
+
+            max-width: 650px;
+
+            margin: 0 auto 25px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: #fffaf0;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 40px;
+        }
+
+        .contact-box {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            box-shadow: var(--shadow);
+
+            border: 1px solid #ecd99d;
+        }
+
+        .contact-box h3 {
+            color: var(--brown);
+
+            font-size: 25px;
+
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #eee0bd;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            font-size: 25px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--brown);
+        }
+
+        .contact-item span {
+            color: #806a5b;
+        }
+
+        .map-box {
+            min-height: 350px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    rgba(74, 25, 8, 0.92),
+                    rgba(74, 25, 8, 0.92)
+                ),
+                url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=80");
+
+            background-size: cover;
+
+            border: 3px solid var(--gold);
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .map-box h3 {
+            color: var(--gold);
+            font-size: 30px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 50px 7% 20px;
+
+            background: var(--brown-dark);
+
+            color: white;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 35px;
+
+            border-bottom: 1px solid rgba(245, 197, 66, 0.3);
+        }
+
+        .footer-brand h2 {
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: #dbc99e;
+            max-width: 350px;
+        }
+
+        footer h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            color: #dbc99e;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social a {
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--gold);
+
+            border-radius: 50%;
+
+            color: var(--gold);
+
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: var(--gold);
+            color: var(--brown-dark);
+        }
+
+        .copyright {
+            text-align: center;
+
+            padding-top: 20px;
+
+            color: #a9946c;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .category-grid,
+            .product-grid,
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                padding: 12px 5%;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 100%;
+                left: 0;
+
+                width: 100%;
+
+                display: none;
+
+                flex-direction: column;
+
+                gap: 20px;
+
+                padding: 25px;
+
+                background: var(--brown-dark);
+
+                border-top: 1px solid var(--gold);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                padding: 60px 5%;
+            }
+
+            .hero-content {
+                margin: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image-area {
+                min-height: auto;
+                margin-top: 40px;
+            }
+
+            .floating-badge {
+                bottom: 15px;
+                left: 5%;
+            }
+
+            .about-container,
+            .cake-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                text-align: center;
+            }
+
+            .features {
+                text-align: left;
+            }
+
+            section {
+                padding: 65px 5%;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+        }
+
+
+        @media (max-width: 520px) {
+
+            .category-grid,
+            .product-grid,
+            .why-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .tagline {
+                font-size: 19px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .hero-main-image {
+                width: 95%;
+            }
+
+            .about-content h2,
+            .cake-content h2 {
+                font-size: 34px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 250px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+
+            <div class="logo-circle">
+                🛕
+            </div>
+
+            <div class="logo-text">
+                <strong>Shri Balaji</strong>
+                <small>BAKERY & SWEETS</small>
+            </div>
+
+        </a>
+
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#sweets">Sweets</a>
+
+            <a href="#bakery">Bakery</a>
+
+            <a href="#gallery">Gallery</a>
+
+            <a href="#contact">Contact</a>
+
+            <a href="#contact" class="order-btn">
+                Order Now
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content reveal">
+
+            <div class="small-title">
+                WELCOME TO
+            </div>
+
+            <h1>
+                Shri Balaji
+                <span>Bakery & Sweets</span>
+            </h1>
+
+            <div class="tagline">
+                || Purity You Can Trust, Taste You'll Love ||
+            </div>
+
+            <p class="hero-description">
+                Fresh cakes, traditional Indian sweets and delicious
+                bakery products — prepared with quality ingredients
+                and lots of love.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#sweets" class="btn btn-gold">
+                    Explore Sweets
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image-area reveal">
+
+            <img
+                class="hero-main-image"
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+                alt="Fresh Cake">
+
+            <div class="floating-badge">
+                🍰 Freshly Baked
+                <br>
+                ⭐ Quality & Taste
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SPECIALITIES
+    ========================== -->
+
+    <section class="specialities">
+
+        <div class="section-title reveal">
+
+            <div class="mini">
+                WHAT WE OFFER
+            </div>
+
+            <h2>
+                Our <span>Specialities</span>
+            </h2>
+
+            <p>
+                Delicious products prepared specially for
+                your celebrations and everyday cravings.
+            </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <div class="category-card reveal">
+
+                <div class="category-icon">
+                    🍰
+                </div>
+
+                <h3>Fresh Cakes</h3>
+
+                <p>
+                    Beautiful and delicious cakes for every occasion.
+                </p>
+
+            </div>
+
+
+            <div class="category-card reveal">
+
+                <div class="category-icon">
+                    🍬
+                </div>
+
+                <h3>Indian Sweets</h3>
+
+                <p>
+                    Traditional sweets with authentic taste.
+                </p>
+
+            </div>
+
+
+            <div class="category-card reveal">
+
+                <div class="category-icon">
+                    🥐
+                </div>
+
+                <h3>Bakery</h3>
+
+                <p>
+                    Fresh bakery products prepared every day.
+                </p>
+
+            </div>
+
+
+            <div class="category-card reveal">
+
+                <div class="category-icon">
+                    🎁
+                </div>
+
+                <h3>Gift Packs</h3>
+
+                <p>
+                    Premium sweet boxes for festivals and gifting.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SWEETS
+    ========================== -->
+
+    <section class="products-section" id="sweets">
+
+        <div class="section-title reveal">
+
+            <div class="mini">
+                TRADITIONAL TASTE
+            </div>
+
+            <h2>
+                Popular <span>Sweets</span>
+            </h2>
+
+            <p>
+                Enjoy the authentic taste of traditional Indian sweets.
+            </p>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+            <div class="product-card reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1605196560548-36f6d1f7c8d8?auto=format&fit=crop&w=700&q=80"
+                        alt="Indian Sweets">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Kaju Katli</h3>
+
+                    <p>
+                        Premium cashew sweet with a rich taste.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            Fresh
+                        </span>
+
+                        <a href="#contact" class="small-btn">
+                            Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="product-card reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=80"
+                        alt="Sweet">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Special Barfi</h3>
+
+                    <p>
+                        Soft and delicious traditional Indian sweet.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            Fresh
+                        </span>
+
+                        <a href="#contact" class="small-btn">
+                            Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="product-card reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=80"
+                        alt="Gulab Jamun">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Gulab Jamun</h3>
+
+                    <p>
+                        Soft, juicy and full of traditional flavour.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            Fresh
+                        </span>
+
+                        <a href="#contact" class="small-btn">
+                            Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="product-card reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"
+                        alt="Indian Sweet">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Special Laddu</h3>
+
+                    <p>
+                        Freshly prepared with traditional ingredients.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            Fresh
+                        </span>
+
+                        <a href="#contact" class="small-btn">
+                            Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+        <div class="about-container">
+
+            <div class="about-image reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=900&q=85"
+                    alt="Bakery">
+
+            </div>
+
+
+            <div class="about-content reveal">
+
+                <div class="mini">
+                    ABOUT US
+                </div>
+
+                <h2>
+                    Taste That Brings
+                    <br>
+                    <span>Happiness</span>
+                </h2>
+
+                <p>
+                    Shri Balaji Bakery & Sweets is dedicated to
+                    bringing fresh, delicious and quality products
+                    to every customer.
+                </p>
+
+                <p>
+                    From traditional Indian sweets to freshly baked
+                    cakes and bakery items, every product is prepared
+                    with care and attention to quality.
+                </p>
+
+
+                <div class="features">
+
+                    <div class="feature">
+                        ✓ Fresh Products
+                    </div>
+
+                    <div class="feature">
+                        ✓ Quality Ingredients
+                    </div>
+
+                    <div class="feature">
+                        ✓ Traditional Taste
+                    </div>
+
+                    <div class="feature">
+                        ✓ Hygienic Preparation
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         BAKERY / CAKES
+    ========================== -->
+
+    <section class="cake-section" id="bakery">
+
+        <div class="cake-container">
+
+            <div class="cake-content reveal">
+
+                <div class="section-title" style="text-align:left; margin-bottom:20px;">
+
+                    <div class="mini">
+                        FRESH FROM OUR BAKERY
+                    </div>
+
+                    <h2>
+                        Cakes Made For
+                        <span>Special Moments</span>
+                    </h2>
+
+                </div>
+
+                <p>
+                    Whether it's a birthday, anniversary, or any special
+                    celebration — make your moment sweeter with
+                    a freshly prepared cake.
+                </p>
+
+                <p>
+                    Choose from chocolate cakes, cream cakes,
+                    birthday cakes and customised designs.
+                </p>
+
+                <a href="#contact" class="btn btn-gold">
+                    Order Your Cake
+                </a>
+
+            </div>
+
+
+            <div class="cake-image reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85"
+                    alt="Birthday Cake">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         GALLERY
+    ========================== -->
+
+    <section class="gallery" id="gallery">
+
+        <div class="section-title reveal">
+
+            <div class="mini">
+                OUR COLLECTION
+            </div>
+
+            <h2>
+                Sweet <span>Gallery</span>
+            </h2>
+
+            <p>
+                A glimpse of our cakes, sweets and bakery products.
+            </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+                    alt="Cake">
+
+                <div class="gallery-overlay">
+                    <h3>Fresh Cakes</h3>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80"
+                    alt="Bakery">
+
+                <div class="gallery-overlay">
+                    <h3>Bakery Products</h3>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1605196560548-36f6d1f7c8d8?auto=format&fit=crop&w=800&q=80"
+                    alt="Sweets">
+
+                <div class="gallery-overlay">
+                    <h3>Indian Sweets</h3>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80"
+                    alt="Cake">
+
+                <div class="gallery-overlay">
+                    <h3>Special Cakes</h3>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80"
+                    alt="Bakery">
+
+                <div class="gallery-overlay">
+                    <h3>Fresh Bakery</h3>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=800&q=80"
+                    alt="Sweet">
+
+                <div class="gallery-overlay">
+                    <h3>Traditional Sweets</h3>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=800&q=80"
+                    alt="Cake">
+
+                <div class="gallery-overlay">
+                    <h3>Celebration Cakes</h3>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?auto=format&fit=crop&w=800&q=80"
+                    alt="Dessert">
+
+                <div class="gallery-overlay">
+                    <h3>Sweet Moments</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         WHY CHOOSE US
+    ========================== -->
+
+    <section class="why-us">
+
+        <div class="section-title reveal">
+
+            <div class="mini">
+                WHY BALAJI?
+            </div>
+
+            <h2>
+                Why <span>Choose Us?</span>
+            </h2>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card reveal">
+
+                <div class="icon">
+                    🥛
+                </div>
+
+                <h3>Fresh Quality</h3>
+
+                <p>
+                    Fresh products prepared with care.
+                </p>
+
+            </div>
+
+
+            <div class="why-card reveal">
+
+                <div class="icon">
+                    👨‍🍳
+                </div>
+
+                <h3>Expert Preparation</h3>
+
+                <p>
+                    Carefully prepared bakery and sweets.
+                </p>
+
+            </div>
+
+
+            <div class="why-card reveal">
+
+                <div class="icon">
+                    ❤️
+                </div>
+
+                <h3>Made With Love</h3>
+
+                <p>
+                    Every product is prepared with attention.
+                </p>
+
+            </div>
+
+
+            <div class="why-card reveal">
+
+                <div class="icon">
+                    ⭐
+                </div>
+
+                <h3>Great Taste</h3>
+
+                <p>
+                    Traditional taste for every occasion.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+        <div class="reveal">
+
+            <h2>
+                Craving Something Sweet?
+            </h2>
+
+            <p>
+                Fresh sweets, cakes and bakery products
+                are waiting for you.
+            </p>
+
+            <a href="#contact" class="btn btn-gold">
+                Contact Us
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact" id="contact">
+
+        <div class="section-title reveal">
+
+            <div class="mini">
+                GET IN TOUCH
+            </div>
+
+            <h2>
+                Contact <span>Us</span>
+            </h2>
+
+            <p>
+                Visit our shop or contact us for orders and enquiries.
+            </p>
+
+        </div>
+
+
+        <div class="contact-container">
+
+
+            <div class="contact-box reveal">
+
+                <h3>
+                    Shri Balaji Bakery & Sweets
+                </h3>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <strong>Address</strong>
+
+                        <span>
+                            Your Shop Address, Your City
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <strong>Phone</strong>
+
+                        <span>
+                            +91 XXXXX XXXXX
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        🕐
+                    </div>
+
+                    <div>
+
+                        <strong>Opening Hours</strong>
+
+                        <span>
+                            8:00 AM – 10:00 PM
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📧
+                    </div>
+
+                    <div>
+
+                        <strong>Email</strong>
+
+                        <span>
+                            balajibakery@example.com
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="map-box reveal">
+
+                <div>
+
+                    <div style="font-size:55px;">
+                        📍
+                    </div>
+
+                    <h3>
+                        Visit Our Shop
+                    </h3>
+
+                    <p>
+                        Your Location / Google Map
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    Shri Balaji
+                </h2>
+
+                <p>
+                    Bakery & Sweets
+                    <br><br>
+                    Purity You Can Trust, Taste You'll Love
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="#home">Home</a>
+
+                    <a href="#about">About</a>
+
+                    <a href="#sweets">Sweets</a>
+
+                    <a href="#bakery">Bakery</a>
+
+                    <a href="#gallery">Gallery</a>
+
+                    <a href="#contact">Contact</a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Follow Us
+                </h3>
+
+                <div class="social">
+
+                    <a href="#">
+                        f
+                    </a>
+
+                    <a href="#">
+                        ◎
+                    </a>
+
+                    <a href="#">
+                        ▶
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Shri Balaji Bakery & Sweets.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           MOBILE MENU
+        ========================== */
+
+        const menuBtn = document.getElementById("menuBtn");
+
+        const navLinks = document.getElementById("navLinks");
+
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("show");
+
+        });
+
+
+        /* Close menu after clicking link */
+
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("show");
+
+            });
+
+        });
+
+
+
+        /* =========================
+           SCROLL REVEAL ANIMATION
+        ========================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        function revealOnScroll() {
+
+            revealElements.forEach(function (element) {
+
+                const windowHeight =
+                    window.innerHeight;
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 80) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            revealOnScroll
+        );
+
+
+        /* Run once when page loads */
+
+        revealOnScroll();
+
+
+
+        /* =========================
+           ORDER BUTTON DEMO
+        ========================== */
+
+        document.querySelectorAll(".small-btn").forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                alert(
+                    "Thank you! Please contact Shri Balaji Bakery & Sweets to place your order."
+                );
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
